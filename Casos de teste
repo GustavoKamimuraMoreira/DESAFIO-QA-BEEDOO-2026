@@ -1,0 +1,135 @@
+
+DESAFIO-QA-BEEDOO-2026
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Objetivo
+
+Tem como objetivo apresentar a execução do desafio técnico de Quality Assurance (QA), contemplando:
+•	Análise inicial da aplicação
+•	Definição de cenários de teste
+•	Documentação de casos de teste
+•	Registro de bugs encontrados
+•	Evidências da execução dos testes
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+ 1. Análise Inicial da Aplicação
+Durante a análise da aplicação foram identificadas três funcionalidades principais relacionadas ao gerenciamento de cursos:
+•	Cadastro de curso
+•	Listagem de cursos
+•	Exclusão de cursos
+Essas funcionalidades foram consideradas críticas pois representam o fluxo principal de gerenciamento de cursos dentro do sistema.
+A análise considerou:
+•	Fluxo principal 
+•	Validação de campos obrigatórios
+•	Comportamentos esperados do sistema
+•	Possíveis falhas que impactam o usuário
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+2. Decisões Tomadas para Criação dos Testes
+Os testes foram criados com base nas seguintes estratégias:
+•	Validação do fluxo principal de cadastro de cursos
+•	Verificação da listagem correta dos cursos cadastrados
+•	Teste de exclusão de cursos existentes
+•	Validação de campos obrigatórios
+•	Identificação de possíveis erros de usabilidade
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+3. Cenários em Gherkin
+Cadastro de Curso
+Funcionalidade: Cadastro de cursos
+
+Cenário: Cadastrar curso com dados válidos
+DADO que o usuário está na tela de cadastro de cursos
+QUANDO o usuário preenche os campos "Nome do curso", "Descrição do curso", "Instrutor", "Url da imagem de capa", "Data de início", " Data de fim", "Número de vagas" e seleciona "Tipo de Curso"
+ENTÃO o sistema deve cadastrar o curso com sucesso
+________________________________________
+Listagem de Cursos
+Funcionalidade: Listagem de cursos
+
+Cenário: Visualizar cursos cadastrados
+DADO que existem cursos cadastrados no sistema
+QUANDO o usuário acessa a tela de listagem de cursos
+ENTÃO o sistema deve exibir todos os cursos cadastrados
+________________________________________
+Exclusão de Curso
+Funcionalidade: Exclusão de cursos
+
+Cenário: Excluir curso existente
+DADO que o usuário está na tela de listagem de cursos
+QUANDO o usuário clica no botão excluir
+E confirma a exclusão
+ENTÃO o sistema deve remover o curso da lista
+________________________________________
+Campos sem preencher
+Funcionalidade: Cadastro de cursos sem preencher
+
+Cenário: Cadastrar novo curso com dados inválidos e vazio
+DADO que o usuário clica no button cadastrar curso
+QUANDO o usuário preenche os campo somente "Nome do curso" 
+E clica no botão Cadastrar Curso                                              
+ENTÃO o sistema não deve cadastrar o curso
+E exibir a mensagem "Falta preencher os campos" que estão vazio (sem preencher)
+________________________________________
+Cadastrar sem informação
+Funcionalidade: Cadastro de cursos
+
+Cenário: Cadastrar novo curso com dados inválidos
+DADO que o usuário clica no button cadastrar curso
+QUANDO o usuário preenche seleciona o campo "Tipo de Curso" e deixa como "selecione"
+E clica no botão Cadastrar Curso                                              
+ENTÃO o sistema não deve cadastrar o curso
+E exibir a mensagem preencha o campo "Tipo de Curso"
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
+ 
+4. Casos de Teste
+Os casos de teste detalhados foram documentados em uma planilha.
+ Planilha de Casos de Teste:
+htts
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+5. Bugs Encontrados
+Bug 01 – Curso não é removido após exclusão
+Passos para reproduzir
+1.	Acessar a tela de listagem de cursos
+2.	Selecionar um curso existente
+3.	Clicar no botão excluir
+4.	Confirmar exclusão
+Resultado atual
+O curso permanece na lista mesmo após a confirmação da exclusão.
+Resultado esperado
+O curso deveria ser removido da lista imediatamente.
+Severidade
+Alta – afeta diretamente a funcionalidade de gerenciamento de cursos.
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+6. Evidências dos Testes
+As evidências da execução dos testes podem ser acessadas no link abaixo:
+https://dr
+Conteúdo da pasta:
+•	Prints da execução dos testes
+•	Captura de bugs encontrados
+•	Vídeos da execução dos cenários
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+7. Ferramentas Utilizadas
+•	Selenium IDE
+•	Google Sheets
+•	GitHub
+•	Google Drive
+•	Navegador Chrome / Brave
+
+___________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Conclusão
+
+A execução dos testes permitiu validar as funcionalidades principais do sistema e identificar possíveis falhas que impactam a experiência do usuário.
+A documentação foi organizada neste repositório para facilitar a análise dos cenários testados e dos resultados obtidos.
+
+___________________________________________________________________________________________________________________________________________________________________________________________________________________________
